@@ -1,8 +1,10 @@
 package com.birly.backend.controller;
 
+import com.birly.backend.Union;
 import com.birly.backend.dto.BillboardItemDTO;
 import com.birly.backend.service.BillboardService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,8 +19,8 @@ public class BillboardController {
         this.billboardService = billboardService;
     }
 
-    @GetMapping("/posts")
-    public List<BillboardItemDTO> getBillboardPosts() {
-        return billboardService.getBillboardPosts();
+    @GetMapping("/posts/{union}")
+    public List<BillboardItemDTO> getBillboardPosts(@PathVariable Union union) {
+        return billboardService.getBillboardPosts(union);
     }
 }

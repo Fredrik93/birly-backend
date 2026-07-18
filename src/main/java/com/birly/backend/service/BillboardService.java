@@ -8,14 +8,18 @@ import java.util.List;
 
 @Service
 public class BillboardService {
+    private final MockedBillboardPosts mockedBillboardPosts;
 
-    public List<BillboardItemDTO> getBillboardPosts(){
-        return createMockPosts();
+    public BillboardService(MockedBillboardPosts mockedBillboardPosts) {
+        this.mockedBillboardPosts = mockedBillboardPosts;
     }
 
-    private List<BillboardItemDTO> createMockPosts(){
-        BillboardItemDTO post1 = new BillboardItemDTO("Firealarms being checked", "desc on fire alarm checking", "1", Union.BANDLANDET, "1106");
 
-        return List.of(post1);
+    public List<BillboardItemDTO> getBillboardPosts(Union union) {
+        List<BillboardItemDTO> allPosts = mockedBillboardPosts.createMockPosts();
+        // Show only one union. this should be based on the user info later on.
+        return allPosts.stream().filter(p -> p.getUnion().equals(union)).toList();
+
     }
+
 }
