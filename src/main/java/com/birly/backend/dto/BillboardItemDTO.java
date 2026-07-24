@@ -9,13 +9,53 @@ public class BillboardItemDTO {
     private final Union union;
     private final String createdByUser;
 
-    public BillboardItemDTO(String title, String description, String id, Union union, String createdByUser) {
-        this.title = title;
-        this.description = description;
-        this.id = id;
-        this.union = union;
-        this.createdByUser = createdByUser;
+    private BillboardItemDTO(Builder builder) {
+        this.title = builder.title;
+        this.description = builder.description;
+        this.id = builder.id;
+        this.union = builder.union;
+        this.createdByUser = builder.createdByUser;
     }
+
+    public static class Builder {
+        private String title;
+        private String description;
+        private String id;
+        private Union union;
+        private String createdByUser;
+
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder union(Union union) {
+            this.union = union;
+            return this;
+        }
+
+        public Builder createdByUser(String createdByUser) {
+            this.createdByUser = createdByUser;
+            return this;
+        }
+
+        public BillboardItemDTO build() {
+            return new BillboardItemDTO(this);
+        }
+
+    }
+
+    // getters
 
     public String getTitle() {
         return title;
@@ -32,7 +72,6 @@ public class BillboardItemDTO {
     public void setDescription(String description) {
         this.description = description;
     }
-
 
     public String getId() {
         return id;
