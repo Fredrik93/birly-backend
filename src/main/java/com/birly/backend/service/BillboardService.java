@@ -19,9 +19,9 @@ public class BillboardService {
     public List<BillboardItemDTO> getBillboardPosts(Union union) {
         allPosts.addAll(mockedBillboardPosts.createMockPosts());
         BillboardItemDTO test = allPosts.getFirst();
-        System.out.println(test.getCreatedByUser() + " testy124");
+        System.out.println(test.createdByUser() + " testy124");
         // Show only one union. this should be based on the user info later on.
-        return allPosts.stream().filter(p -> p.getUnion().equals(union)).toList();
+        return allPosts.stream().filter(p -> p.union().equals(union)).toList();
 
     }
     
