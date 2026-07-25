@@ -2,6 +2,7 @@ package com.birly.backend.controller;
 
 import com.birly.backend.Union;
 import com.birly.backend.dto.BillboardItemDTO;
+import com.birly.backend.dto.CreateBillboardItemRequest;
 import com.birly.backend.service.BillboardService;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,10 +24,9 @@ public class BillboardController {
     }
 
     @PostMapping("/posts")
-    public BillboardItemDTO create(@RequestBody BillboardItemDTO request) {
-        BillboardItemDTO dto = new BillboardItemDTO(request.title(), request.description(), request.union(),
-                request.createdByUser());
-        return billboardService.createBillboardPost(dto);
+    public BillboardItemDTO create(@RequestBody CreateBillboardItemRequest request) {
+       
+        return billboardService.createBillboardPost(request);
     }
 
 }

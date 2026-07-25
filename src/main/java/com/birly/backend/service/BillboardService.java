@@ -2,10 +2,14 @@ package com.birly.backend.service;
 
 import com.birly.backend.Union;
 import com.birly.backend.dto.BillboardItemDTO;
+import com.birly.backend.dto.CreateBillboardItemRequest;
+
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class BillboardService {
@@ -21,9 +25,19 @@ public class BillboardService {
 
     }
 
-    public BillboardItemDTO createBillboardPost(BillboardItemDTO dto) {
+    public BillboardItemDTO createBillboardPost(CreateBillboardItemRequest request) {
+
+        BillboardItemDTO dto = new BillboardItemDTO(
+            request.title(), 
+            request.description(),
+            UUID.randomUUID().toString(), 
+            request.union(),
+            request.createdByUser(), 
+            Instant.now());
+
         allPosts.add(dto);
         return dto;
     }
+    
 
 }
