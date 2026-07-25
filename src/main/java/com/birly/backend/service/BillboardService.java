@@ -9,25 +9,21 @@ import java.util.List;
 
 @Service
 public class BillboardService {
-    private final MockedBillboardPosts mockedBillboardPosts;
     private final List<BillboardItemDTO> allPosts = new ArrayList<>();
+
     public BillboardService(MockedBillboardPosts mockedBillboardPosts) {
-        this.mockedBillboardPosts = mockedBillboardPosts;
+        allPosts.addAll(mockedBillboardPosts.createMockPosts());
     }
 
-
     public List<BillboardItemDTO> getBillboardPosts(Union union) {
-        allPosts.addAll(mockedBillboardPosts.createMockPosts());
-        BillboardItemDTO test = allPosts.getFirst();
-        System.out.println(test.createdByUser() + " testy124");
         // Show only one union. this should be based on the user info later on.
         return allPosts.stream().filter(p -> p.union().equals(union)).toList();
 
     }
-    
-    public BillboardItemDTO createBillboardPost(BillboardItemDTO dto){
-        
-        return null;
+
+    public BillboardItemDTO createBillboardPost(BillboardItemDTO dto) {
+        allPosts.add(dto);
+        return dto;
     }
 
 }

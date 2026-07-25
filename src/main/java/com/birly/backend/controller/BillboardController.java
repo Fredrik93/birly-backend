@@ -6,6 +6,7 @@ import com.birly.backend.service.BillboardService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/billboard")
@@ -17,7 +18,15 @@ public class BillboardController {
     }
 
     @GetMapping("/posts/{union}")
-    public List<BillboardItemDTO> getBillboardPosts(@PathVariable Union union) {
+    public List<BillboardItemDTO> get(@PathVariable Union union) {
         return billboardService.getBillboardPosts(union);
     }
+
+    @PostMapping("/posts")
+    public BillboardItemDTO create(@RequestBody BillboardItemDTO request) {
+        BillboardItemDTO dto = new BillboardItemDTO(request.title(), request.description(), request.union(),
+                request.createdByUser());
+        return billboardService.createBillboardPost(dto);
+    }
+
 }
