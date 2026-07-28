@@ -5,6 +5,8 @@
 
 #### Get billboard posts for a union
 `curl  http://localhost:8080/billboard/posts/SKOGSMARDEN`
+##### Prettified json 
+`curl  http://localhost:8080/billboard/posts/SKOGSMARDEN | jq`
 
 ---
 #### Get announcement posts for a union

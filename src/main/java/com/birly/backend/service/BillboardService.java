@@ -10,23 +10,21 @@ import com.birly.backend.repository.BillboardItemRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @Service
 public class BillboardService {
-    private final List<BillboardItemDTO> allPosts = new ArrayList<>();
     private final BillboardItemRepository repository;
 
-    public BillboardService(MockedBillboardPosts mockedBillboardPosts, BillboardItemRepository repository) {
+    public BillboardService(BillboardItemRepository repository) {
         this.repository = repository;
-        allPosts.addAll(mockedBillboardPosts.createMockPosts());
     }
 
     public List<BillboardItemDTO> getBillboardPosts(Union union) {
         // Show only one union. this should be based on the user info later on.
-        return allPosts.stream().filter(p -> p.union().equals(union)).toList();
+        List<BillboardItemDTO> dtos = getAllDTOs(union);
+        return dtos.stream().filter(p -> p.union() == union).toList();
 
     }
 
@@ -39,8 +37,6 @@ public class BillboardService {
                 request.union(),
                 request.createdByUser(),
                 Instant.now());
-
-        allPosts.add(dto);
         save(dto);
         return dto;
     }
@@ -48,6 +44,11 @@ public class BillboardService {
     private void save(BillboardItemDTO dto) {
         BillboardItemEntity entity = BillboardItemConverter.toEntity(dto);
         repository.save(entity);
+    }
+
+    private List<BillboardItemDTO> getAllDTOs(Union union) {
+        List<BillboardItemEntity> entities = repository.findAll();
+        return entities.stream().map(BillboardItemConverter::toDTO).filter(u -> u.union().equals(union)).toList();
     }
 
 
