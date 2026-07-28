@@ -32,3 +32,7 @@ Inspect the db:
 $docker exec -it billboard-postgres psql -U billboard_user -d billboard
 
 --- 
+
+db: birlydb
+user: birly_user
+pass: birlypass 

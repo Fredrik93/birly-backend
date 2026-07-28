@@ -1,17 +1,31 @@
-version: "3.8"
 services:
   postgres:
     image: postgres:16
-    container_name: billboard-postgres
+    container_name: birly-postgres
     restart: unless-stopped
     environment:
-      POSTGRES_DB: billboard
-      POSTGRES_USER: billboard_user
-      POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: birlydb
+      POSTGRES_USER: birly_user
+      POSTGRES_PASSWORD: birlypass
     ports:
       - "5432:5432"
     volumes:
-      - billboard_pgdata:/var/lib/postgresql/data
+      - birly_pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: billboard-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@birly.com
+      PGADMIN_DEFAULT_PASSWORD: birlypass
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
 
 volumes:
-  billboard_pgdata:
+  birly_pgdata:
+  pgadmin_data:
