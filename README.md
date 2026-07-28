@@ -24,3 +24,11 @@ curl -X POST http://localhost:8080/billboard/posts \
   }'
   
 ---
+
+### Database 
+Spin up db:
+$ docker compose up -d 
+Inspect the db: 
+$docker exec -it billboard-postgres psql -U billboard_user -d billboard
+
+--- 
