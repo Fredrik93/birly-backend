@@ -2,7 +2,7 @@ package com.birly.backend;
 
 import java.util.Locale;
 
-public enum Union {
+public enum HousingAssociation {
     BANDLANDET, SKOGSMARDEN, LINDSDAL;
 
     public String displayName(){
