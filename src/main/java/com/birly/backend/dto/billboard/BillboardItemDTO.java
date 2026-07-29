@@ -9,5 +9,6 @@ public record BillboardItemDTO(
                 String description,
                 String id,
                 HousingAssociation housingAssociation,
+                // should be called userId instead
                 String createdByUser,
                 Instant createdAt) {}
