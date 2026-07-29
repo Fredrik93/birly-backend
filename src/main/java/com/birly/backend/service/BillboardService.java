@@ -1,6 +1,6 @@
 package com.birly.backend.service;
 
-import com.birly.backend.Union;
+import com.birly.backend.HousingAssociation;
 import com.birly.backend.converter.BillboardItemConverter;
 import com.birly.backend.dto.BillboardItemDTO;
 import com.birly.backend.dto.CreateBillboardItemRequest;
@@ -21,10 +21,10 @@ public class BillboardService {
         this.repository = repository;
     }
 
-    public List<BillboardItemDTO> getBillboardPosts(Union union) {
-        // Show only one union. this should be based on the user info later on.
-        List<BillboardItemDTO> dtos = getAllDTOs(union);
-        return dtos.stream().filter(p -> p.union() == union).toList();
+    public List<BillboardItemDTO> getBillboardPosts(HousingAssociation housingAssociation) {
+        // Show only one housingAssociation. this should be based on the user info later on.
+        List<BillboardItemDTO> dtos = getAllDTOs(housingAssociation);
+        return dtos.stream().filter(p -> p.housingAssociation() == housingAssociation).toList();
 
     }
 
@@ -34,7 +34,7 @@ public class BillboardService {
                 request.title(),
                 request.description(),
                 UUID.randomUUID().toString(),
-                request.union(),
+                request.housingAssociation(),
                 request.createdByUser(),
                 Instant.now());
         save(dto);
@@ -46,9 +46,9 @@ public class BillboardService {
         repository.save(entity);
     }
 
-    private List<BillboardItemDTO> getAllDTOs(Union union) {
+    private List<BillboardItemDTO> getAllDTOs(HousingAssociation housingAssociation) {
         List<BillboardItemEntity> entities = repository.findAll();
-        return entities.stream().map(BillboardItemConverter::toDTO).filter(u -> u.union().equals(union)).toList();
+        return entities.stream().map(BillboardItemConverter::toDTO).filter(u -> u.housingAssociation().equals(housingAssociation)).toList();
     }
 
 

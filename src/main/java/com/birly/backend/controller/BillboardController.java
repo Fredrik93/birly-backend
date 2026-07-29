@@ -1,6 +1,6 @@
 package com.birly.backend.controller;
 
-import com.birly.backend.Union;
+import com.birly.backend.HousingAssociation;
 import com.birly.backend.dto.BillboardItemDTO;
 import com.birly.backend.dto.CreateBillboardItemRequest;
 import com.birly.backend.service.BillboardService;
@@ -18,9 +18,9 @@ public class BillboardController {
         this.billboardService = billboardService;
     }
 
-    @GetMapping("/posts/{union}")
-    public List<BillboardItemDTO> get(@PathVariable Union union) {
-        return billboardService.getBillboardPosts(union);
+    @GetMapping("/posts/{housingAssociation}")
+    public List<BillboardItemDTO> get(@PathVariable HousingAssociation housingAssociation) {
+        return billboardService.getBillboardPosts(housingAssociation);
     }
 
     @PostMapping("/posts")
