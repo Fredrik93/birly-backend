@@ -1,6 +1,6 @@
 package com.birly.backend.converter;
 
-import com.birly.backend.dto.BillboardItemDTO;
+import com.birly.backend.dto.billboard.BillboardItemDTO;
 import com.birly.backend.entity.BillboardItemEntity;
 
 public class BillboardItemConverter {

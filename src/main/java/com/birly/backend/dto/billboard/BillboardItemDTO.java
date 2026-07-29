@@ -1,4 +1,4 @@
-package com.birly.backend.dto;
+package com.birly.backend.dto.billboard;
 
 import com.birly.backend.HousingAssociation;
 
@@ -9,5 +9,6 @@ public record BillboardItemDTO(
                 String description,
                 String id,
                 HousingAssociation housingAssociation,
+                // should be called userId instead
                 String createdByUser,
                 Instant createdAt) {}
