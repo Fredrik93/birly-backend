@@ -1,4 +1,4 @@
-package com.birly.backend.dto;
+package com.birly.backend.dto.billboard;
 
 import com.birly.backend.HousingAssociation;
 

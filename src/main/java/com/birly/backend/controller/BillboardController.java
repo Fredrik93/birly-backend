@@ -1,8 +1,8 @@
 package com.birly.backend.controller;
 
 import com.birly.backend.HousingAssociation;
-import com.birly.backend.dto.BillboardItemDTO;
-import com.birly.backend.dto.CreateBillboardItemRequest;
+import com.birly.backend.dto.billboard.BillboardItemDTO;
+import com.birly.backend.dto.billboard.CreateBillboardItemRequest;
 import com.birly.backend.service.BillboardService;
 import org.springframework.web.bind.annotation.*;
 

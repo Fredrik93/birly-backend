@@ -2,8 +2,8 @@ package com.birly.backend.service;
 
 import com.birly.backend.HousingAssociation;
 import com.birly.backend.converter.BillboardItemConverter;
-import com.birly.backend.dto.BillboardItemDTO;
-import com.birly.backend.dto.CreateBillboardItemRequest;
+import com.birly.backend.dto.billboard.BillboardItemDTO;
+import com.birly.backend.dto.billboard.CreateBillboardItemRequest;
 
 import com.birly.backend.entity.BillboardItemEntity;
 import com.birly.backend.repository.BillboardItemRepository;
