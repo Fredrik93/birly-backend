@@ -19,17 +19,30 @@
 
 ---
 
-#### Create billboard posts for a housingAssociation
+#### Create billboard post
 
-`curl -X POST http://localhost:8080/billboard/posts \
+```bash
+curl -X POST http://localhost:8080/billboard/posts \
   -H "Content-Type: application/json" \
   -d '{
-    "title": "Free couch",
+    "title": "Free fishing rod",
     "description": "Good condition, pickup only",
     "housingAssociation": "LINDSDAL",
     "createdByUser": "1234"
-  }'`
-  
+  }'
+```
+
+#### Create user
+
+```bash
+curl -X POST http://localhost:8080/user/create \
+  -H "Content-Type: application/json" \
+  -d '{
+    "userId": "my-user-id",
+    "housingAssociation": "SKOGSMARDEN"
+  }'
+```
+
 
 ---
 
