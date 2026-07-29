@@ -23,8 +23,7 @@ public class BillboardService {
 
     public List<BillboardItemDTO> getBillboardPosts(HousingAssociation housingAssociation) {
         // Show only one housingAssociation. this should be based on the user info later on.
-        List<BillboardItemDTO> dtos = getAllDTOs(housingAssociation);
-        return dtos.stream().filter(p -> p.housingAssociation() == housingAssociation).toList();
+        return repository.findByHousingAssociation(housingAssociation).stream().map(BillboardItemConverter::toDTO).toList();
 
     }
 
@@ -45,11 +44,5 @@ public class BillboardService {
         BillboardItemEntity entity = BillboardItemConverter.toEntity(dto);
         repository.save(entity);
     }
-
-    private List<BillboardItemDTO> getAllDTOs(HousingAssociation housingAssociation) {
-        List<BillboardItemEntity> entities = repository.findAll();
-        return entities.stream().map(BillboardItemConverter::toDTO).filter(u -> u.housingAssociation().equals(housingAssociation)).toList();
-    }
-
 
 }
