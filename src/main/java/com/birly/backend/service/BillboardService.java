@@ -5,6 +5,7 @@ import com.birly.backend.converter.BillboardItemConverter;
 import com.birly.backend.dto.billboard.BillboardItemDTO;
 import com.birly.backend.dto.billboard.CreateBillboardItemRequest;
 
+import com.birly.backend.dto.user.UserDTO;
 import com.birly.backend.entity.BillboardItemEntity;
 import com.birly.backend.repository.BillboardItemRepository;
 import org.springframework.stereotype.Service;
@@ -15,19 +16,26 @@ import java.util.UUID;
 
 @Service
 public class BillboardService {
-    private final BillboardItemRepository repository;
+    private final BillboardItemRepository billboardItemRepository;
+    private final UserService userService;
 
-    public BillboardService(BillboardItemRepository repository) {
-        this.repository = repository;
+    public BillboardService(BillboardItemRepository billboardItemRepository, UserService userService) {
+        this.billboardItemRepository = billboardItemRepository;
+        this.userService = userService;
     }
 
     public List<BillboardItemDTO> getBillboardPosts(HousingAssociation housingAssociation) {
         // Show only one housingAssociation. this should be based on the user info later on.
-        return repository.findByHousingAssociation(housingAssociation).stream().map(BillboardItemConverter::toDTO).toList();
+        return billboardItemRepository.findByHousingAssociation(housingAssociation).stream().map(BillboardItemConverter::toDTO).toList();
 
     }
 
     public BillboardItemDTO createBillboardPost(CreateBillboardItemRequest request) {
+        UserDTO user = userService.getUserById(request.createdByUser());
+
+        if (user.housingAssociation() != request.housingAssociation()) {
+            throw new IllegalArgumentException("The users housing association is not correct");
+        }
 
         BillboardItemDTO dto = new BillboardItemDTO(
                 request.title(),
@@ -42,7 +50,7 @@ public class BillboardService {
 
     private void save(BillboardItemDTO dto) {
         BillboardItemEntity entity = BillboardItemConverter.toEntity(dto);
-        repository.save(entity);
+        billboardItemRepository.save(entity);
     }
 
 }
