@@ -4,13 +4,14 @@ import com.birly.backend.HousingAssociation;
 import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.util.UUID;
 
 @Entity
 @Table(name = "billboard_item")
 public class BillboardItemEntity {
 
     @Id
-    private String id;
+    private UUID id;
 
     private String title;
     private String description;
@@ -18,15 +19,15 @@ public class BillboardItemEntity {
     @Enumerated(EnumType.STRING)
     private HousingAssociation housingAssociation;
 
-    private String createdByUser;
+    private UUID createdByUser;
     private Instant createdAt;
 
     // for JPA, it needs a no-arguments constructor
     protected BillboardItemEntity() {
     }
 
-    public BillboardItemEntity(String id, String title, String description,
-                               HousingAssociation housingAssociation, String createdByUser, Instant createdAt) {
+    public BillboardItemEntity(UUID id, String title, String description,
+                               HousingAssociation housingAssociation, UUID createdByUser, Instant createdAt) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -36,11 +37,11 @@ public class BillboardItemEntity {
     }
 
     // getters and setters below
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -68,11 +69,11 @@ public class BillboardItemEntity {
         this.housingAssociation = housingAssociation;
     }
 
-    public String getCreatedByUser() {
+    public UUID getCreatedByUser() {
         return createdByUser;
     }
 
-    public void setCreatedByUser(String createdByUser) {
+    public void setCreatedByUser(UUID createdByUser) {
         this.createdByUser = createdByUser;
     }
 

@@ -2,10 +2,11 @@ package com.birly.backend.dto.billboard;
 
 import com.birly.backend.HousingAssociation;
 
+import java.util.UUID;
+
 public record CreateBillboardItemRequest(
         String title,
         String description,
-        // housingAssociation should be based on the user information, not passed here.
         HousingAssociation housingAssociation,
-        String createdByUser) {
+        UUID createdByUser) {
 }
