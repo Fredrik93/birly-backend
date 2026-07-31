@@ -40,7 +40,7 @@ public class BillboardService {
         BillboardItemDTO dto = new BillboardItemDTO(
                 request.title(),
                 request.description(),
-                UUID.randomUUID().toString(),
+                UUID.randomUUID(),
                 request.housingAssociation(),
                 request.createdByUser(),
                 Instant.now());

@@ -10,10 +10,10 @@ public class UserConverter {
     }
 
     public static UserEntity toEntity(UserDTO dto) {
-        return new UserEntity(dto.userId(), dto.housingAssociation());
+        return new UserEntity(dto.userId(), dto.housingAssociation(), dto.apartmentNumber());
     }
 
     public static UserDTO toDTO(UserEntity entity) {
-        return new UserDTO(entity.getUserId(), entity.getHousingAssociation());
+        return new UserDTO(entity.getUserId(), entity.getHousingAssociation(), entity.getApartmentNumber());
     }
 }
