@@ -11,4 +11,6 @@ import java.util.UUID;
 @Repository
 public interface BillboardItemRepository extends JpaRepository<BillboardItemEntity, UUID> {
     List<BillboardItemEntity> findByHousingAssociation(HousingAssociation housingAssociation);
+
+    boolean existsByTitle(String title);
 }
