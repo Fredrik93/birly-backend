@@ -37,6 +37,9 @@ public class BillboardSeedService {
         if (!repository.existsByTitle("Lost black cat")) {
             billboardService.createBillboardPost(new CreateBillboardItemRequest("Lost black cat", "Answers to Simba", HousingAssociation.BANDLANDET, UUID.fromString("eea7afae-96d4-463f-aca2-70b43f367941")));
         }
+        if (!repository.existsByTitle("Lost my dog")) {
+            billboardService.createBillboardPost(new CreateBillboardItemRequest("Lost my lil doggie", "Answers to doggie", HousingAssociation.LINDSDAL, UUID.fromString("ae00f153-8cb8-4993-ab17-e0b8d74f2303")));
+        }
 
         return repository.findAll().stream().map(BillboardItemConverter::toDTO).toList();
     }
