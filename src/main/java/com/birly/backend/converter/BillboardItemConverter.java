@@ -15,6 +15,6 @@ public class BillboardItemConverter {
     }
 
     public static BillboardItemDTO toDTO(BillboardItemEntity entity) {
-        return new BillboardItemDTO(entity.getTitle(), entity.getDescription(), entity.getId(), entity.getHousingAssociation(), entity.getCreatedByUser(), entity.getCreatedAt());
+        return new BillboardItemDTO(entity.getTitle(), entity.getDescription(), entity.getBillboardItemId(), entity.getHousingAssociation(), entity.getCreatedByUser(), entity.getCreatedAt());
     }
 }

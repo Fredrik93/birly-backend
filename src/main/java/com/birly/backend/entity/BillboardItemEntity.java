@@ -11,7 +11,8 @@ import java.util.UUID;
 public class BillboardItemEntity {
 
     @Id
-    private UUID id;
+    @Column(name = "billboard_item_id")
+    private UUID billboardItemId;
 
     private String title;
     private String description;
@@ -26,9 +27,9 @@ public class BillboardItemEntity {
     protected BillboardItemEntity() {
     }
 
-    public BillboardItemEntity(UUID id, String title, String description,
+    public BillboardItemEntity(UUID billboardItemId, String title, String description,
                                HousingAssociation housingAssociation, UUID createdByUser, Instant createdAt) {
-        this.id = id;
+        this.billboardItemId = billboardItemId;
         this.title = title;
         this.description = description;
         this.housingAssociation = housingAssociation;
@@ -37,12 +38,12 @@ public class BillboardItemEntity {
     }
 
     // getters and setters below
-    public UUID getId() {
-        return id;
+    public UUID getBillboardItemId() {
+        return billboardItemId;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public void setBillboardItemId(UUID billboardItemId) {
+        this.billboardItemId = billboardItemId;
     }
 
     public String getTitle() {
