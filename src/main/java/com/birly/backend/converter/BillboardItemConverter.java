@@ -10,7 +10,7 @@ public class BillboardItemConverter {
 
     public static BillboardItemEntity toEntity(BillboardItemDTO dto) {
         return new BillboardItemEntity(
-                dto.id(), dto.title(), dto.description(), dto.housingAssociation(), dto.createdByUser(), dto.createdAt()
+                dto.billboardItemId(), dto.title(), dto.description(), dto.housingAssociation(), dto.createdByUser(), dto.createdAt()
         );
     }
 

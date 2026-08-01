@@ -8,7 +8,7 @@ import java.util.UUID;
 public record BillboardItemDTO(
                 String title,
                 String description,
-                UUID id,
+                UUID billboardItemId,
                 HousingAssociation housingAssociation,
                 UUID createdByUser,
                 Instant createdAt) {}
