@@ -15,8 +15,8 @@ import java.util.UUID;
 public class BillboardSeedService {
     private final BillboardItemRepository repository;
     private final BillboardService billboardService;
-    private static final String USER_ONE_BANDLANDET = "eea7afae-96d4-463f-aca2-70b43f367941";
-    private static final String USER_ONE_LINDSDAL = "ae00f153-8cb8-4993-ab17-e0b8d74f2303";
+    private static final String USER_ONE_BANDLANDET = "4cbb94b8-b745-445e-bf00-b4fe2eb78127";
+    private static final String USER_ONE_LINDSDAL = "f8c23df9-0a80-440b-a323-910b7ae38308";
 
     public BillboardSeedService(BillboardService billboardService, BillboardItemRepository repository) {
         this.repository = repository;
