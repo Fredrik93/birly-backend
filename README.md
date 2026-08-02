@@ -68,8 +68,11 @@ pass: birlypass
 ---
 
 ### Seed data 
+#### Seed users and billboard posts to db
+curl -X POST http://localhost:8080/seed/seed-all
+
 #### Seed users to users table
 curl -X POST http://localhost:8080/seed/users
 
 #### Seed users to billboard table
-curl -X POST http://localhost:8080/seed/billboardPosts
+curl -X POST http://localhost:8080/seed/billboard-posts

@@ -28,12 +28,11 @@ public class BillboardSeedService {
         this.userService = userService;
     }
 
-    public void setUpSeedUsers() {
+    private void setUpSeedUsers() {
         bandlandetUser = userService.getUsersInHousingAssociation(HousingAssociation.BANDLANDET).getFirst();
         bandlandetSecondUser = userService.getUsersInHousingAssociation(HousingAssociation.BANDLANDET).getLast();
         lindsdalUser = userService.getUsersInHousingAssociation(HousingAssociation.LINDSDAL).getFirst();
         skogsmardenUser = userService.getUsersInHousingAssociation(HousingAssociation.SKOGSMARDEN).getFirst();
-
     }
 
     public List<BillboardItemDTO> seedBillboardPosts() {
