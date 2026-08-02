@@ -46,7 +46,6 @@ public class SeedController {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.getAllUsers());
     }
 
-
     @PostMapping("/billboard-posts")
     public ResponseEntity<List<BillboardItemDTO>> seedBillboardPosts() {
         return ResponseEntity.status(HttpStatus.CREATED).body(billboardSeedService.seedBillboardPosts());
