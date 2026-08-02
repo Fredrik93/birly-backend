@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class BillboardItemConverterTest {
 
     @Test
-    void toDTO_converts_correctly() {
+    void toDTO_mapsAllFieldsCorrectly() {
         UUID billboardItemId = UUID.randomUUID();
         UUID userId = UUID.randomUUID();
         Instant createdAt = Instant.now();
@@ -31,7 +31,7 @@ class BillboardItemConverterTest {
     }
 
     @Test
-    void toEntity_converts_correctly() {
+    void toEntity_mapsAllFieldsCorrectly() {
         UUID billboardItemId = UUID.randomUUID();
         UUID userId = UUID.randomUUID();
         Instant createdAt = Instant.now();
