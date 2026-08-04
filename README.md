@@ -76,3 +76,4 @@ curl -X POST http://localhost:8080/seed/users
 
 #### Seed users to billboard table
 curl -X POST http://localhost:8080/seed/billboard-posts
+---
