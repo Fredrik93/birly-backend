@@ -1,6 +1,6 @@
 package com.birly.backend.entity;
 
-import com.birly.backend.HousingAssociation;
+import com.birly.backend.domain.HousingAssociation;
 import jakarta.persistence.*;
 
 import java.util.UUID;

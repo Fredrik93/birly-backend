@@ -28,7 +28,7 @@ curl -X POST http://localhost:8080/billboard/posts \
     "title": "Free fishing rod",
     "description": "Good condition, pickup only",
     "housingAssociation": "LINDSDAL",
-    "createdByUser": "1234"
+    "createdByUser": "301d8047-35c5-4d88-a7a6-c89d84b995e2"
   }'
 ```
 

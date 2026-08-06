@@ -1,6 +1,6 @@
 package com.birly.backend.service;
 
-import com.birly.backend.HousingAssociation;
+import com.birly.backend.domain.HousingAssociation;
 import com.birly.backend.converter.UserConverter;
 import com.birly.backend.dto.user.UserDTO;
 import com.birly.backend.dto.user.UserRequest;

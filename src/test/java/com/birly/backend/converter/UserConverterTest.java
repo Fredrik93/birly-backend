@@ -1,6 +1,6 @@
 package com.birly.backend.converter;
 
-import com.birly.backend.HousingAssociation;
+import com.birly.backend.domain.HousingAssociation;
 import com.birly.backend.dto.user.UserDTO;
 import com.birly.backend.entity.UserEntity;
 import org.junit.jupiter.api.Test;

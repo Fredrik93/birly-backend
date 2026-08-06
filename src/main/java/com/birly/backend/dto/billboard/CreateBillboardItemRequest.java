@@ -1,6 +1,6 @@
 package com.birly.backend.dto.billboard;
 
-import com.birly.backend.HousingAssociation;
+import com.birly.backend.domain.HousingAssociation;
 
 import java.util.UUID;
 

@@ -1,5 +1,6 @@
 package com.birly.backend.converter;
 
+import com.birly.backend.domain.BillboardItemId;
 import com.birly.backend.dto.billboard.BillboardItemDTO;
 import com.birly.backend.entity.BillboardItemEntity;
 
@@ -10,11 +11,12 @@ public class BillboardItemConverter {
 
     public static BillboardItemEntity toEntity(BillboardItemDTO dto) {
         return new BillboardItemEntity(
-                dto.billboardItemId(), dto.title(), dto.description(), dto.housingAssociation(), dto.createdByUser(), dto.createdAt()
+                dto.billboardItemId().id(), dto.title(), dto.description(), dto.housingAssociation(), dto.createdByUser(), dto.createdAt()
         );
     }
 
     public static BillboardItemDTO toDTO(BillboardItemEntity entity) {
-        return new BillboardItemDTO(entity.getTitle(), entity.getDescription(), entity.getBillboardItemId(), entity.getHousingAssociation(), entity.getCreatedByUser(), entity.getCreatedAt());
+        BillboardItemId billboardItemId = new BillboardItemId(entity.getBillboardItemId());
+        return new BillboardItemDTO(entity.getTitle(), entity.getDescription(), billboardItemId, entity.getHousingAssociation(), entity.getCreatedByUser(), entity.getCreatedAt());
     }
 }

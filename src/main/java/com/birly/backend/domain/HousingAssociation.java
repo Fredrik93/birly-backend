@@ -1,4 +1,4 @@
-package com.birly.backend;
+package com.birly.backend.domain;
 
 import java.util.Locale;
 

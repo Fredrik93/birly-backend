@@ -1,6 +1,6 @@
 package com.birly.backend.controller;
 
-import com.birly.backend.HousingAssociation;
+import com.birly.backend.domain.HousingAssociation;
 import com.birly.backend.dto.billboard.BillboardItemDTO;
 import com.birly.backend.dto.billboard.CreateBillboardItemRequest;
 import com.birly.backend.service.BillboardService;

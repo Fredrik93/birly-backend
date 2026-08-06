@@ -1,6 +1,7 @@
 package com.birly.backend.service;
 
-import com.birly.backend.HousingAssociation;
+import com.birly.backend.domain.BillboardItemId;
+import com.birly.backend.domain.HousingAssociation;
 import com.birly.backend.converter.BillboardItemConverter;
 import com.birly.backend.dto.billboard.BillboardItemDTO;
 import com.birly.backend.dto.billboard.CreateBillboardItemRequest;
@@ -36,11 +37,11 @@ public class BillboardService {
         if (user.housingAssociation() != request.housingAssociation()) {
             throw new IllegalArgumentException("The users housing association is not correct");
         }
-
+        BillboardItemId billboardItemId = new BillboardItemId(UUID.randomUUID());
         BillboardItemDTO dto = new BillboardItemDTO(
                 request.title(),
                 request.description(),
-                UUID.randomUUID(),
+                billboardItemId,
                 request.housingAssociation(),
                 request.createdByUser(),
                 Instant.now());

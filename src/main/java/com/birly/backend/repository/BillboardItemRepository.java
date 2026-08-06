@@ -1,6 +1,6 @@
 package com.birly.backend.repository;
 
-import com.birly.backend.HousingAssociation;
+import com.birly.backend.domain.HousingAssociation;
 import com.birly.backend.entity.BillboardItemEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
