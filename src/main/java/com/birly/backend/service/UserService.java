@@ -2,6 +2,7 @@ package com.birly.backend.service;
 
 import com.birly.backend.domain.HousingAssociation;
 import com.birly.backend.converter.UserConverter;
+import com.birly.backend.domain.UserId;
 import com.birly.backend.dto.user.UserDTO;
 import com.birly.backend.dto.user.UserRequest;
 import com.birly.backend.entity.UserEntity;
@@ -22,7 +23,9 @@ public class UserService {
     }
 
     public UserDTO save(UserRequest request) {
-        UserDTO dto = new UserDTO(UUID.randomUUID(), request.housingAssociation(), request.apartmentNumber());
+
+        UserId userId = new UserId(UUID.randomUUID());
+        UserDTO dto = new UserDTO(userId, request.housingAssociation(), request.apartmentNumber());
         UserEntity saved = userRepository.save(UserConverter.toEntity(dto));
         return UserConverter.toDTO(saved);
     }

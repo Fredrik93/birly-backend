@@ -1,6 +1,7 @@
 package com.birly.backend.converter;
 
 import com.birly.backend.domain.HousingAssociation;
+import com.birly.backend.domain.UserId;
 import com.birly.backend.dto.user.UserDTO;
 import com.birly.backend.entity.UserEntity;
 import org.junit.jupiter.api.Test;
@@ -13,9 +14,8 @@ class UserConverterTest {
 
     @Test
     void toDTO_mapsAllFieldsCorrectly(){
-        UUID userId = UUID.randomUUID();
-
-        UserEntity entity = new UserEntity(userId, HousingAssociation.SKOGSMARDEN, "1105");
+        UserId userId = new UserId(UUID.randomUUID());
+        UserEntity entity = new UserEntity(userId.userId(), HousingAssociation.SKOGSMARDEN, "1105");
         UserDTO dto = UserConverter.toDTO(entity);
 
         assertThat(dto.userId()).isEqualTo(userId);
@@ -25,12 +25,11 @@ class UserConverterTest {
 
     @Test void toEntity_mapsAllFieldsCorrectly(){
 
-        UUID userId = UUID.randomUUID();
-
+        UserId userId = new UserId(UUID.randomUUID());
         UserDTO dto = new UserDTO(userId, HousingAssociation.SKOGSMARDEN, "1105");
         UserEntity entity = UserConverter.toEntity(dto);
 
-        assertThat(entity.getUserId()).isEqualTo(userId);
+        assertThat(entity.getUserId()).isEqualTo(userId.userId());
         assertThat(entity.getHousingAssociation()).isEqualTo(HousingAssociation.SKOGSMARDEN);
         assertThat(entity.getApartmentNumber()).isEqualTo("1105");
 

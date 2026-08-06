@@ -38,22 +38,22 @@ public class BillboardSeedService {
     public List<BillboardItemDTO> seedBillboardPosts() {
         setUpSeedUsers();
         if (!repository.existsByTitle("Clean the staircase")) {
-            billboardService.createBillboardPost(new CreateBillboardItemRequest("Clean the staircase", "Staircase needs cleaning", bandlandetUser.housingAssociation(), bandlandetUser.userId()));
+            billboardService.createBillboardPost(new CreateBillboardItemRequest("Clean the staircase", "Staircase needs cleaning", bandlandetUser.housingAssociation(), bandlandetUser.userId().userId()));
         }
         if (!repository.existsByTitle("Lending out my car")) {
-            billboardService.createBillboardPost(new CreateBillboardItemRequest("Lending out my car", "If anyone needs it", bandlandetSecondUser.housingAssociation(), bandlandetSecondUser.userId()));
+            billboardService.createBillboardPost(new CreateBillboardItemRequest("Lending out my car", "If anyone needs it", bandlandetSecondUser.housingAssociation(), bandlandetSecondUser.getUserId()));
         }
         if (!repository.existsByTitle("Free moving boxes")) {
-            billboardService.createBillboardPost(new CreateBillboardItemRequest("Free moving boxes", "Pick them up in the basement", bandlandetUser.housingAssociation(), bandlandetUser.userId()));
+            billboardService.createBillboardPost(new CreateBillboardItemRequest("Free moving boxes", "Pick them up in the basement", bandlandetUser.housingAssociation(), bandlandetUser.getUserId()));
         }
         if (!repository.existsByTitle("Lending out my drill")) {
-            billboardService.createBillboardPost(new CreateBillboardItemRequest("Lending out my drill", "Ask in the yard", lindsdalUser.housingAssociation(), lindsdalUser.userId()));
+            billboardService.createBillboardPost(new CreateBillboardItemRequest("Lending out my drill", "Ask in the yard", lindsdalUser.housingAssociation(), lindsdalUser.getUserId()));
         }
         if (!repository.existsByTitle("Lost black cat")) {
-            billboardService.createBillboardPost(new CreateBillboardItemRequest("Lost black cat", "Answers to Simba", lindsdalUser.housingAssociation(), lindsdalUser.userId()));
+            billboardService.createBillboardPost(new CreateBillboardItemRequest("Lost black cat", "Answers to Simba", lindsdalUser.housingAssociation(), lindsdalUser.getUserId()));
         }
         if (!repository.existsByTitle("Lost my dog")) {
-            billboardService.createBillboardPost(new CreateBillboardItemRequest("Lost my lil doggie", "Answers to doggie", skogsmardenUser.housingAssociation(), skogsmardenUser.userId()));
+            billboardService.createBillboardPost(new CreateBillboardItemRequest("Lost my lil doggie", "Answers to doggie", skogsmardenUser.housingAssociation(), skogsmardenUser.getUserId()));
         }
 
         return repository.findAll().stream().map(BillboardItemConverter::toDTO).toList();
