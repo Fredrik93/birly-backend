@@ -36,6 +36,11 @@ public class UserService {
         return UserConverter.toDTO(entity);
     }
 
+    public void checkUserById(UUID userId) {
+        userRepository.findById(userId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found: " + userId));
+    }
+
     public List<UserDTO> getAllUsers() {
         List<UserEntity> entities = userRepository.findAll();
         return entities.stream().map(UserConverter::toDTO).toList();

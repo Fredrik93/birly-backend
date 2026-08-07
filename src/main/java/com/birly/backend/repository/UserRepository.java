@@ -9,6 +9,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface UserRepository extends JpaRepository<UserEntity, UUID> {
+
     Optional<UserEntity> findUserByApartmentNumber(String apartmentNumber);
 
     List<UserEntity> findAllByHousingAssociation(HousingAssociation housingAssociation);

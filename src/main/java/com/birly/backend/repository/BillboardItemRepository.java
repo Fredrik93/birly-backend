@@ -13,4 +13,6 @@ public interface BillboardItemRepository extends JpaRepository<BillboardItemEnti
     List<BillboardItemEntity> findByHousingAssociation(HousingAssociation housingAssociation);
 
     boolean existsByTitle(String title);
+
+
 }

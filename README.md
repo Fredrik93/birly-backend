@@ -32,6 +32,18 @@ curl -X POST http://localhost:8080/billboard/posts \
   }'
 ```
 
+#### Update a billboard post
+
+```bash
+curl -X PATCH http://localhost:8080/billboard/posts/781ed407-35cb-4e1b-8acb-dfe8b3c1b2bf \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "an updated title",
+    "description": "updated descy",
+    "createdByUser": "301d8047-35c5-4d88-a7a6-c89d84b995e2"
+  }'
+```
+
 #### Create user
 
 ```bash

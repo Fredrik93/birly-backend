@@ -37,48 +37,36 @@ public class BillboardItemEntity {
         this.createdAt = createdAt;
     }
 
-    // getters and setters below
     public UUID getBillboardItemId() {
         return billboardItemId;
-    }
-
-    public void setBillboardItemId(UUID billboardItemId) {
-        this.billboardItemId = billboardItemId;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public HousingAssociation getHousingAssociation() {
         return housingAssociation;
     }
 
-    public void setHousingAssociation(HousingAssociation housingAssociation) {
-        this.housingAssociation = housingAssociation;
-    }
-
     public UUID getCreatedByUser() {
         return createdByUser;
-    }
-
-    public void setCreatedByUser(UUID createdByUser) {
-        this.createdByUser = createdByUser;
     }
 
     public Instant getCreatedAt() {
         return createdAt;
     }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
 }
